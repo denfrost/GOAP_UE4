@@ -78,7 +78,7 @@ bool AGOAPController::executeGOAP()
 			return true;
 		}		
 	}
-
+	//UE_LOG(LogTemp, Warning, TEXT("Dont have PLAN in GOAPController."));
 	return false;
 }
 
@@ -91,7 +91,9 @@ bool AGOAPController::generatePlan()
 
 		return true;
 	}
-
+	if (auxActions.Num() == 0) UE_LOG(LogTemp, Warning, TEXT("PLAN is Empty in GOAPController."));
+	if (wsCurrentWorld.isEmpty()) UE_LOG(LogTemp, Warning, TEXT("CurrentWorld is Empty in GOAPController."));
+	if (wsDesiredWorld.isEmpty()) UE_LOG(LogTemp, Warning, TEXT("DesiredWorld is Empty in GOAPController."));
 	return false;
 }
 
